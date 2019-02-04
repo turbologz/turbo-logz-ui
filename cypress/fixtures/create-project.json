@@ -1,0 +1,10 @@
+{
+  "data": {
+    "createProject": {
+      "id": "abc123",
+      "name": "testName",
+      "gitUrl": "http://test.com",
+      "__typename": "createProject"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "data": {
+    "directoryUpdated": [
+      {
+        "id": "abc1",
+        "name": "test",
+        "path": "git/test",
+        "size": 1234,
+        "isDir": false,
+        "ext": "js",
+        "parent": "1"
+      }
+    ]
+  }
+}
