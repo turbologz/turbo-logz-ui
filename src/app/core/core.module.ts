@@ -66,7 +66,7 @@ export class CoreModule {
     let link;
     if (isPlatformBrowser(platformId)) {
 
-      const wsProtocol = window.location.hostname === 'localhost' ? 'ws' : 'wss';
+      const wsProtocol = window.location.hostname === 'localhost' ? 'ws' : 'ws';
       const wsPort = window.location.hostname === 'localhost' ? ':3001' : '';
 
       const wsClient = new SubscriptionClient(`${wsProtocol}://${window.location.hostname}${wsPort}/subscriptions`, {
