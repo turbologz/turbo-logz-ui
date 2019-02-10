@@ -5,6 +5,7 @@ services:
   - docker
 install:
   - yarn --ignore-engines
+script:
   - yarn test
   - yarn e2e:ci
   - yarn build
