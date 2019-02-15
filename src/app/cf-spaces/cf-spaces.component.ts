@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Store} from "@ngrx/store";
+import {ModuleState} from "./module.state";
+import * as actions from './cf-spaces.actions';
 
 @Component({
   selector: 'app-cf-spaces',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CfSpacesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<ModuleState>) {
+  }
 
   ngOnInit() {
+    this.store.dispatch(new actions.FetchSpaces());
   }
 
 }
