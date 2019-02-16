@@ -6,6 +6,7 @@ services:
 install:
   - yarn --ignore-engines
 script:
+  - yarn lint
   - yarn test
   - yarn e2e:ci
   - yarn build
