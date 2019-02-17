@@ -12,7 +12,7 @@ export class CfSpacesEffects {
     ofType(actions.FETCH_SPACES),
     mergeMap(() =>
       this.service.getSpaces().pipe(
-        mergeMap((user) => of(new actions.FetchSpacesOk(user.data.cfSpaces))),
+        mergeMap((response) => of(new actions.FetchSpacesOk(response.data.cfSpaces))),
         catchError(() => of(new actions.FetchSpacesFail()))
       )
     )
