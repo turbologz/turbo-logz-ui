@@ -7,6 +7,9 @@ export const FETCH_SPACES_FAIL = 'cf-spaces/FETCH_SPACES_FAIL';
 
 export class FetchSpaces implements Action {
   readonly type = FETCH_SPACES;
+
+  constructor(public orgId: string) {
+  }
 }
 
 export class FetchSpacesOk implements Action {

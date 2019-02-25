@@ -75,7 +75,7 @@
     "apollo-server": "^2.2.6",
     "codelyzer": "~4.5.0",
     "cross-env": "^5.2.0",
-    "cypress": "^3.1.4",
+    "cypress": "3.1.5",
     "cypress-run": "^1.0.6",
     "faker": "^4.1.0",
     "jasmine-core": "~2.99.1",

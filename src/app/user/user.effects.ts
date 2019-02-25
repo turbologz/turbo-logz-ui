@@ -18,7 +18,7 @@ export class UserEffects {
     mergeMap((loginForm) =>
       this.userService.login(loginForm.username, loginForm.password).pipe(
         mergeMap((user) => {
-          this.router.navigate(['/cf-spaces']);
+          this.router.navigate(['/orgs']);
           return of(new actions.LoginOk(user.data.login));
         }),
         catchError(() => of(new actions.LoginFail()))

@@ -1,4 +1,4 @@
-import {cfSpacesListItems, cfSpacesListLength, navigateToCfSpaces} from "../../support/cf-spaces/cf-spaces.po";
+import { cfSpacesListItems, cfSpacesListLength, navigateToCfSpaces } from '../../support/cf-spaces/cf-spaces.po';
 
 describe('CfSpaces', () => {
 
@@ -21,7 +21,7 @@ describe('CfSpaces', () => {
   it('should be able to click a space', () => {
     cfSpacesListItems().eq(1).click();
 
-    cy.url().should('contain', '/cf-spaces/id2');
+    cy.url().should('contain', '/orgs/org1/id2');
   });
 
 });

@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {ModuleState} from './module.state';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { ModuleState } from './module.state';
 import * as actions from './cf-spaces.actions';
-import {Observable} from 'rxjs';
-import {CfSpace} from './cf-spaces.state';
-import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { CfSpace } from './cf-spaces.state';
+import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cf-spaces',
@@ -15,12 +16,12 @@ export class CfSpacesComponent implements OnInit {
 
   spaces$: Observable<CfSpace[]>;
 
-  constructor(private store: Store<ModuleState>) {
+  constructor(private store: Store<ModuleState>, private route: ActivatedRoute) {
     this.spaces$ = store.pipe(map((state) => state.cfSpaces.spaces));
   }
 
   ngOnInit() {
-    this.store.dispatch(new actions.FetchSpaces());
+    this.route.params.subscribe(params => this.store.dispatch(new actions.FetchSpaces(params.orgId)));
   }
 
 }

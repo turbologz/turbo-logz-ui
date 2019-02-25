@@ -1,11 +1,11 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {CfAppsComponent} from './cf-apps.component';
-import {NO_ERRORS_SCHEMA} from "@angular/core";
-import {Store} from "@ngrx/store";
-import * as actions from "./cf-apps.actions";
-import {ActivatedRoute} from "@angular/router";
-import {of} from "rxjs";
+import { CfAppsComponent } from './cf-apps.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as actions from './cf-apps.actions';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 jest.mock('@ngrx/store');
 

@@ -1,5 +1,5 @@
-import {Routes} from '@angular/router';
-import {IsLoggedInGuard} from './core/is-logged-in.guard';
+import { Routes } from '@angular/router';
+import { IsLoggedInGuard } from './core/is-logged-in.guard';
 
 export const appRoutes: Routes = [
   {
@@ -7,12 +7,17 @@ export const appRoutes: Routes = [
     loadChildren: './landing/landing.module#LandingModule'
   },
   {
-    path: 'cf-spaces',
+    path: 'orgs',
+    loadChildren: './cf-orgs/cf-orgs.module#CfOrgsModule',
+    canActivate: [IsLoggedInGuard]
+  },
+  {
+    path: 'orgs/:orgId',
     loadChildren: './cf-spaces/cf-spaces.module#CfSpacesModule',
     canActivate: [IsLoggedInGuard]
   },
   {
-    path: 'cf-spaces/:spaceId',
+    path: 'orgs/:orgId/:spaceId',
     loadChildren: './cf-apps/cf-apps.module#CfAppsModule',
     canActivate: [IsLoggedInGuard]
   },

@@ -1,4 +1,4 @@
-export const navigateToCfApps = () => cy.visit('/cf-spaces/space1');
+export const navigateToCfApps = () => cy.visit('/orgs/org1/space1');
 
 export const cfAppsList = () => cy.get('mat-list');
 
