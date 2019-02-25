@@ -1,9 +1,9 @@
-import {async} from '@angular/core/testing';
+import { async } from '@angular/core/testing';
 
-import {CfSpacesService} from './cf-spaces.service';
-import {Apollo} from "apollo-angular";
-import {of} from "rxjs";
-import {CfSpace} from "./cf-spaces.state";
+import { CfSpacesService } from './cf-spaces.service';
+import { Apollo } from 'apollo-angular';
+import { of } from 'rxjs';
+import { CfSpace } from './cf-spaces.state';
 
 describe('CfSpacesService', () => {
 
@@ -21,9 +21,8 @@ describe('CfSpacesService', () => {
     service = new CfSpacesService(new Apollo(null, null));
   });
 
-
-  it('should get a list of spaces', async(() => {
-    service.getSpaces().subscribe((spaces) => {
+  it('should get a list of spaces in an organization', async(() => {
+    service.getSpaces('abc123').subscribe((spaces) => {
       expect(spaces).toEqual(SPACES);
     });
   }));

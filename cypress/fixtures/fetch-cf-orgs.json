@@ -1,0 +1,21 @@
+{
+  "data": {
+    "cfOrgs": [
+      {
+        "id": "id1",
+        "name": "org1",
+        "__typename": "cfOrg"
+      },
+      {
+        "id": "id2",
+        "name": "org2",
+        "__typename": "cfOrg"
+      },
+      {
+        "id": "id3",
+        "name": "org3",
+        "__typename": "cfOrg"
+      }
+    ]
+  }
+}

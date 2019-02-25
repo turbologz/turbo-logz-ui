@@ -1,11 +1,11 @@
-import {CfSpacesService} from "./cf-spaces.service";
-import {of} from "rxjs/internal/observable/of";
-import {CfSpace} from "./cf-spaces.state";
-import {cold} from "jest-marbles";
+import { CfSpacesService } from './cf-spaces.service';
+import { of } from 'rxjs/internal/observable/of';
+import { CfSpace } from './cf-spaces.state';
+import { cold } from 'jest-marbles';
 import * as actions from './cf-spaces.actions';
-import {Actions} from "@ngrx/effects";
-import {CfSpacesEffects} from "./cf-spaces.effects";
-import {throwError} from "rxjs";
+import { Actions } from '@ngrx/effects';
+import { CfSpacesEffects } from './cf-spaces.effects';
+import { throwError } from 'rxjs';
 
 describe('CfSpaces Effects', () => {
 
@@ -20,7 +20,7 @@ describe('CfSpaces Effects', () => {
     it('should work', () => {
       CfSpacesService.prototype.getSpaces = jest.fn().mockImplementationOnce(() => of({data: {cfSpaces: SPACES}}));
 
-      const source = cold('a', {a: new actions.FetchSpaces()});
+      const source = cold('a', {a: new actions.FetchSpaces('abc123')});
 
       const expected = cold('a', {a: new actions.FetchSpacesOk(SPACES)});
 
@@ -31,7 +31,7 @@ describe('CfSpaces Effects', () => {
 
     it('should handle login failure', () => {
       CfSpacesService.prototype.getSpaces = jest.fn().mockImplementationOnce(() => throwError('Error'));
-      const source = cold('a', {a: new actions.FetchSpaces()});
+      const source = cold('a', {a: new actions.FetchSpaces('abc123')});
 
       const expected = cold('a', {a: new actions.FetchSpacesFail()});
 

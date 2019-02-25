@@ -1,4 +1,4 @@
-import {cfAppsListLength, navigateToCfApps} from "../../support/cf-apps/cf-apps.po";
+import { cfAppsListLength, navigateToCfApps } from '../../support/cf-apps/cf-apps.po';
 
 describe('CfApps', () => {
 

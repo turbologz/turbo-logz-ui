@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CfOrg } from '../cf-org.model';
 
 @Component({
   selector: 'app-cf-orgs-list',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CfOrgsListComponent implements OnInit {
 
-  constructor() { }
+  @Input() orgs: CfOrg[];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

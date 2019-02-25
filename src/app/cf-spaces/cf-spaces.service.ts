@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {Apollo} from 'apollo-angular';
+import { Injectable } from '@angular/core';
+import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
-import {CfSpace} from './cf-spaces.state';
-import {FetchResult} from 'apollo-link';
+import { CfSpace } from './cf-spaces.state';
+import { FetchResult } from 'apollo-link';
 
 const getSpacesQuery = gql`
-  query {
-    cfSpaces {
+  query cfSpaces($orgId: String!) {
+    cfSpaces(orgId: $orgId) {
       id
       name
     }
@@ -21,7 +21,7 @@ export class CfSpacesService {
   constructor(private apollo: Apollo) {
   }
 
-  getSpaces() {
-    return this.apollo.query<FetchResult<CfSpace[]>>({query: getSpacesQuery});
+  getSpaces(orgId: string) {
+    return this.apollo.query<FetchResult<CfSpace[]>>({query: getSpacesQuery, variables: {orgId}});
   }
 }

@@ -4,16 +4,19 @@
       {
         "id": "id1",
         "name": "space1",
+        "orgId": "org1",
         "__typename": "cfSpace"
       },
       {
         "id": "id2",
         "name": "space2",
+        "orgId": "org1",
         "__typename": "cfSpace"
       },
       {
         "id": "id3",
         "name": "space3",
+        "orgId": "org1",
         "__typename": "cfSpace"
       }
     ]
