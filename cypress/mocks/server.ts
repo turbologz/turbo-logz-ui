@@ -1,10 +1,10 @@
-import {SubscriptionServer} from 'subscriptions-transport-ws';
-import {createServer} from 'http';
+import { SubscriptionServer } from 'subscriptions-transport-ws';
+import { createServer } from 'http';
 import * as express from 'express';
-import {execute, GraphQLSchema, subscribe} from 'graphql';
-import {typeDefs} from './types';
-import {resolvers} from './schema';
-import {makeExecutableSchema} from 'graphql-tools';
+import { execute, subscribe } from 'graphql';
+import { typeDefs } from './types';
+import { resolvers } from './schema';
+import { makeExecutableSchema } from 'graphql-tools';
 
 const port = 3001;
 
