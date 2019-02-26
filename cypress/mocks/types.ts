@@ -1,4 +1,4 @@
-import {gql} from 'apollo-server-express';
+import { gql } from 'apollo-server-express';
 
 export const typeDefs = gql`
     type User {
@@ -7,60 +7,40 @@ export const typeDefs = gql`
         username: String
     }
     
-    type Project {
-        id: String!
-        userId: String!
-        name: String!
-        gitUrl: String!
-        user: User!
-    }
-    
-    type Session {
-        id: String!
-        userId: String!
-        projectId: String!
-        createdAt: String!
-        project: Project!
-    }
-    
-    input Directory {
-        id: String!
-        name: String!
-        path: String!
-        isDir: Boolean!
-        size: Int!
-        ext: String!
-        parent: String
-    }
-
-    type DirectoryStructure {
-        id: String!
-        name: String!
-        path: String!
-        isDir: Boolean!
-        size: Int!
-        ext: String!
-        parent: String
-    }
-    
-    type File {
-        sessionId: String!
-        path: String!
-        file: String!
-    }
-    
-    type TaskLog {
-        sessionId: String!
-        name: String!
-        log: String!
+    type CloudFoundryLog {
+        host: String!
+        ident: String!
+        message: String!
         time: Int!
+        pid: String!
+        tag: String!
     }
     
-    input TaskLogInput {
-        sessionId: String!
-        name: String!
-        log: String!
+    input CloudFoundryLogInput {
+        host: String!
+        ident: String!
+        message: String!
         time: Int!
+        pid: String!
+        tag: String!
+    }
+    
+    type CloudFoundryOrg {
+        id: String!
+        name: String!
+    }
+    
+    type CloudFoundrySpace {
+        id: String!
+        orgId: String!
+        name: String!
+    }
+    
+    type CloudFoundryApp {
+        id: String!
+        spaceId: String!
+        appId: String!
+        name: String!
     }
     
     type Mutation {
@@ -68,38 +48,20 @@ export const typeDefs = gql`
     
         login(username: String! password: String!): User
         
-        createProject(name: String! gitUrl: String!): Project
-        
-        createSession(projectId: String!): Session
-        
-        updateDirectory(sessionId: String! directory: [Directory]!): [DirectoryStructure]!
-        
-        fetchDirectory(sessionId: String!): Boolean
-        
-        fetchFile(sessionId: String! path: String!): Boolean
-        
-        updateFile(sessionId: String! path: String! file: String!): File
-        
-        e2eDirectoryUpdated(directory: [Directory]!): Boolean
-        
-        e2eFileUpdated(sessionId: String! path: String! file: String!): Boolean
-        
-        e2eTailTaskLogUpdated(log: TaskLogInput!): Boolean
+        e2eLogUpdated(log: CloudFoundryLogInput!): Boolean
     }
     
     type Query {
         user(userId: String!): User
         
-        projects: [Project]
+        cfOrgs: [CloudFoundryOrg]!
         
-        sessions(projectId: String!): [Session]
+        cfSpaces(orgId: String!): [CloudFoundrySpace]!
+        
+        cfApps(spaceId: String!): [CloudFoundryApp]!
     }
     
     type Subscription {
-        directoryUpdated(sessionId: String!): [DirectoryStructure]!
-        
-        fileUpdated(sessionId: String!): File!
-        
-        tailTaskLog(sessionId: String!): TaskLog!
+        tailLog(ident: String!): CloudFoundryLog!
     }
 `;

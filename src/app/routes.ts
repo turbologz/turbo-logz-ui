@@ -21,5 +21,10 @@ export const appRoutes: Routes = [
     loadChildren: './cf-apps/cf-apps.module#CfAppsModule',
     canActivate: [IsLoggedInGuard]
   },
+  {
+    path: 'orgs/:orgId/:spaceId/:appId',
+    loadChildren: './cf-logs/cf-logs.module#CfLogsModule',
+    canActivate: [IsLoggedInGuard]
+  },
   {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];

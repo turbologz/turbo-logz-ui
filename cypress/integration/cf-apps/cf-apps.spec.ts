@@ -1,4 +1,4 @@
-import { cfAppsListLength, navigateToCfApps } from '../../support/cf-apps/cf-apps.po';
+import { cfAppsListItems, cfAppsListLength, navigateToCfApps } from '../../support/cf-apps/cf-apps.po';
 
 describe('CfApps', () => {
 
@@ -18,4 +18,9 @@ describe('CfApps', () => {
     cfAppsListLength().should('eq', 3);
   });
 
+  it('should be able to click a space', () => {
+    cfAppsListItems().eq(1).click();
+
+    cy.url().should('contain', '/orgs/org1/space1/app2');
+  });
 });
