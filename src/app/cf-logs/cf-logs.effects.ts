@@ -4,10 +4,9 @@ import { Store } from '@ngrx/store';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { CfLogsService } from './cf-logs.service';
 import * as actions from './cf-logs.actions';
-import { mergeMap } from 'rxjs/internal/operators/mergeMap';
+import { catchError, mergeMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
-import { catchError } from 'rxjs/internal/operators/catchError';
-import { of } from 'rxjs/internal/observable/of';
 
 @Injectable()
 export class CfLogsEffects {
@@ -26,7 +25,6 @@ export class CfLogsEffects {
       )
     )
   );
-
 
   constructor(private actions$: Actions,
               private store$: Store<ModuleState>,
