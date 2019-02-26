@@ -3,7 +3,7 @@ import { SubscriptionClient } from 'subscriptions-transport-ws';
 import { WebSocketLink } from 'apollo-link-ws';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { navigateToCfLogViewer } from '../../support/cf-logs/cf-logs.po';
+import { getLogText, navigateToCfLogViewer } from '../../support/cf-logs/cf-logs.po';
 
 const logMutation = gql`
   mutation e2eLogUpdated($log: CloudFoundryLogInput!){
@@ -40,10 +40,7 @@ describe('Cf Logs', () => {
   });
 
   it('should display logs received from server', () => {
-    setTimeout(() => {
-      client.mutate({mutation: logMutation, variables: {log}});
-      client.mutate({mutation: logMutation, variables: {log}});
-    }, 1000);
+    client.mutate({mutation: logMutation, variables: {log}});
   });
 
 });

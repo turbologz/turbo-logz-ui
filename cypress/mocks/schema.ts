@@ -12,7 +12,7 @@ export const resolvers = {
   Mutation: {
     // Test function
     e2eLogUpdated: async (_: any, {log}: any) => {
-      await pubsub.publish('logUpdated', {tailLog: log});
+      await pubsub.publish('tailLog', {tailLog: log});
       return true;
     }
   }

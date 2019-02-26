@@ -19,7 +19,7 @@ describe('Cf Logs Effects', () => {
     tag: 'cf.app.user.info'
   };
 
-  let store: Store<ModuleState>;
+  const store: Store<ModuleState>;
 
   describe('subscribe to selected file changes', () => {
 

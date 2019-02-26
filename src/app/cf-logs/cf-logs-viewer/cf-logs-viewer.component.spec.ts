@@ -6,8 +6,10 @@ import { of } from 'rxjs';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import * as actions from '../cf-logs.actions';
 import {Terminal} from 'xterm';
+import { fit } from 'xterm/lib/addons/fit/fit';
 
 jest.mock('xterm');
+jest.mock('xterm/lib/addons/fit/fit');
 jest.mock('@ngrx/store');
 
 describe('CfLogsViewerComponent', () => {

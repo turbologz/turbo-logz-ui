@@ -15,9 +15,8 @@ export class CfLogsEffects {
     ofType<actions.SubscribeToLogs>(actions.SUBSCRIBE_TO_LOGS),
     mergeMap(({appId, logFunction}) =>
       this.editorService.subscribeToLogs(appId).pipe(
-        switchMap((log) => {
-
-          logFunction(log.data.message);
+        mergeMap((log) => {
+          logFunction(log.data.tailLog);
 
           return of(new actions.SubscribeToLogsOk());
         }),
